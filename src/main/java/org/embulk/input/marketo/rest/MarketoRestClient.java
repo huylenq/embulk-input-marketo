@@ -242,8 +242,8 @@ public class MarketoRestClient extends MarketoBaseRestClient
     {
         long waitTime = 0;
         long waitTimeoutMs = waitTimeout * 1000;
-        long now = System.currentTimeMillis();
         while (true) {
+            long now = System.currentTimeMillis();
             MarketoResponse<ObjectNode> marketoResponse = doGet(this.endPoint + marketoRESTEndpoint.getEndpoint(
                     new ImmutableMap.Builder<String, String>().put("export_id", exportId).build()), null, null, new MarketoResponseJetty92EntityReader<ObjectNode>(READ_TIMEOUT_MILLIS));
             if (marketoResponse.isSuccess()) {
